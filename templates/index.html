@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI UPI Fraud Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+</head>
+<body>
+
+<div class="container">
+
+    <img src="{{ url_for('static',filename='logo.jpg')}}"width="150">
+
+    <h1>AI-Based UPI Fraud Detection System</h1>
+
+    <form method="POST">
+
+        <label>Transaction Amount:</label><br>
+        <input type="number" name="amount"
+    required><br><br>
+
+        <label>Transaction Time:</label><br>
+        <select name="time">
+            <option>Day</option>
+            <option>Night</option>
+        </select><br><br>
+
+        <label>New User?</label><br>
+        <select name="new_user">
+            <option>Yes</option>
+            <option>No</option>
+        </select><br><br>
+
+        <label>Multiple Transactions?</label><br>
+        <select name="multiple">
+            <option>Yes</option>
+            <option>No</option>
+        </select><br><br>
+
+        <button type="submit">Check Fraud</button>
+
+    </form>
+
+    <h2 class="result
+    {% if result == 'Fraud Alert!'%}
+    fraud
+    {% elif result == 'Safe Transaction'%}
+    safe
+    {% elif result == 'Suspicious Transaction!'%}
+    suspicious
+    {% elif result == 'Multiple Transaction Detected!'%}
+    multiple
+    {% endif %}">
+    {{ result }}
+</h2>
+
+</div> 
+
+<footer>
+    <p>Developed By: Jani Honey</p>
+</footer>
+    
+</body>
+</html>
